@@ -149,16 +149,7 @@ display: table;
 clear: both;
 }
  
-/*
-Die row-Container sind bei der Rastererstellung notwendig, damit die Außenabstand der ersten Spalte auch auf „0“ gesetzt werden kann und damit wir den Clearfix umsetzen können, der dafür sorgt, dass die Spalten nicht in andere Reihen rutschen.
 
-.row{
-background: #aaa;
-margin: 20px 0;
-}
-*/
- 
- 
 /* Raster */
  
 
@@ -533,12 +524,6 @@ gap: 26px;
   font-weight: 600;   
 }
 
-/* Animation Bilder  
-.projects img:hover {
-transform: scale(1.05);
-transition: all 0.15s linear 0s;
-box-shadow: 0px -3px 20px 0 rgba(83, 85, 72, 0.3);
-}*/
 
 .projects .button:hover{
 background: #b9d501;
@@ -547,13 +532,16 @@ transform: scale(1.05);
 
 /* What I do */
 
-.what_I_do {
-background: #252525 url(../images/what-I-do-background.webp) center center no-repeat;
-width: 100%;
-height: auto;
-background-size: cover;
-min-height: 800px;
-background-attachment: fixed;
+.what_I_do::before {
+    content: ' ';
+    display: block;
+    background-image: url('../images/what-I-do-background.webp');
+    background-position: center;
+    background-size: cover;
+    height: 100vh; width: 100vw;
+    top: 0; bottom: 0; left: 0; right: 0;
+    position: fixed;
+    z-index: -10;
 }
 
 .what_I_do h1, h5 {
@@ -642,27 +630,15 @@ text-align: left;
 margin-bottom: 25px;
 }
 
-/*  
-.services .column { 
-max-width: 360px;
-}*/
-
 .services img {
-/* width: 108px;
-height: 108px; */
 margin: 10px 0;
 }
 
 .services p {
 color:#F0EEE9;
-/* border: 1px solid #DCFF00; 
-border-radius: 0 0 15px 15px;*/
 border-top: none;
 padding: 20px;
-/* max-width: 357px; */
-/* min-height: 269px; */
 text-align: left;
-/* box-shadow: 0px 8px 20px 0 rgba(220, 255, 0, .3); */
 }
 
 .services .wrapper {
@@ -677,16 +653,11 @@ flex-wrap: wrap;
 
 .services h6 {
   color: #DCFF00;
-  /* border-top: 1px solid #DCFF00; */
   border-bottom: 1px solid #DCFF00;
   height: 80px;
-  /* max-width: 357px; */
   padding: 10px 10px 10px 20px;
-  /* display: flex; */
-  /* align-items: center; */
   text-align: left;
   text-transform: uppercase;
-  /* box-shadow: 0px -3px 20px 0 rgba(220, 255, 0, .3); */
 }
 
 
@@ -781,7 +752,7 @@ color: #DCFF00;
   background-color: #252525;
 }
 
-.about{
+.about{ 
 margin: 0;
 background: #252525 url('../images/About-Bild-Header.webp') center center no-repeat;
 width: 100%;
@@ -1013,15 +984,17 @@ position: relative;
 top: -50px;
 left: 150px;
 }
-
-.flow-meets-function{
-margin: 0;
-background: #252525 url('../images/flow-meets-function.webp') center center no-repeat;
-background-size: cover;
-width: 100%;
-height: auto;
-min-height:700px;
-background-attachment: fixed;
+ 
+.flow-meets-function::before {
+    content: ' ';
+    display: block;
+    background-image: url('../images/flow-meets-function.webp');
+    background-position: center;
+    background-size: cover;
+    height: 100vh; width: 100vw;
+    top: 0; bottom: 0; left: 0; right: 0;
+    position: fixed;
+    z-index: -10;
 }
 
 .headline img {
@@ -1121,12 +1094,16 @@ transform: rotate(90deg) !important;
 
 /* Unterseite Portfolio */
 
-.portfolio{
-margin: 0;
-background: #252525 url('../images/Bild-Header-Portfolio.webp') center center no-repeat;
-background-size: cover;
-min-height: 800px;
-background-attachment: fixed;
+.portfolio::before {
+    content: ' ';
+    display: block;
+    background-image: url('../images/Bild-Header-Portfolio.webp');
+    background-position: center;
+    background-size: cover;
+    height: 100vh; width: 100vw;
+    top: 0; bottom: 0; left: 0; right: 0;
+    position: fixed;
+    z-index: -10;
 }
 
 .headline-focus {
@@ -1336,7 +1313,7 @@ text-align: center;
 }
 
 .newsletter input {
-width: 400px;
+width: 380px;
 margin: 0 0 20px;
 text-align: center;
 padding: 13px;
@@ -2030,9 +2007,7 @@ left: 0px;
 /* CSS-Anweisungen Smartphones */
 
 @media only screen and (max-width: 767px) {
-/* .col_1_2, .col_1_3, .col_2_3, .col_1_4, .col_3_4 { 
-width: 100%;
-}*/
+
 .column{
 margin-left: 0;
 }
@@ -2058,7 +2033,7 @@ font-size: 3.188rem; /* 51px; */
 
 .circle {
   width: 160px;
-  top: 200px;
+  top: 250px;
   right: 30px;
 }
 
@@ -2069,22 +2044,55 @@ font-size: 3.188rem; /* 51px; */
 }
 }
 
+/* CSS-Anweisungen Smartphones kleiner */
 
 @media only screen and (max-width: 431px) {
-/* .col_1_2, .col_1_3, .col_2_3, .col_1_4, .col_3_4 { 
-width: 100%;
-}*/
+
 .column{
 margin-left: 0;
 }
 
 body {
-font: 1.1rem/1.55 "Work Sans", Arial, Helvetica, sans-serif;
+font: 1.1rem/1.45 "Work Sans", Arial, Helvetica, sans-serif;
 color: #474847;
 }
 
+h1{     
+font-size: 3.188rem; /* 51px; */          
+font-weight: 500;
+} 
+ 
+h2{     
+font-size: 2.5rem; /* 40px; */     
+font-weight: 500; 
+} 
+ 
+h3{    
+font-size: 2rem; /* 32px; */  
+font-weight: 500; 
+text-transform: uppercase;
+}
+
+h4{    
+font-size: 1.875rem; /* 30px; */ 
+font-weight: 300; 
+text-transform: uppercase;
+}
+
+h5{    
+font-size: 1.5rem; /* 24px; */ 
+font-weight: 400; 
+text-transform: uppercase;
+}
+
+h6{    
+font-size: 1.25rem; /* 20px; */ 
+font-weight: 400; 
+text-transform: uppercase;
+}
+
 small{    
-font-size: 0.8rem; /* 16px; */ 
+font-size: 0.8rem; 
 }
 
 .what_I_do h1{
@@ -2095,8 +2103,9 @@ font-size: 2.5rem;
 font-size: 2.5rem; /* 40px; */
 }
 
-blockquote{
+.text blockquote{
 font-size: 1.4rem; 
+margin: 30px 25px;
 }
  
 .portfolio-DAVILLA .headline h1 {
@@ -2113,6 +2122,25 @@ font-size: 14px;
   margin-left: 10px;
 }
 
+/* Tabelle */ 
+ 
+table{
+border-collapse: collapse;
+margin: 20px 0;
+}
+ 
+th{
+font: 400 0.9rem/1.45 'GeneralSans-Variable', Arial, Helvetica, sans-serif;
+}
+
+td{
+font-size: 0.9rem; 
+}
+
+.newsletter input {
+width: 310px;
+}
+
 /* Logo-Slider */
 
 .clients {
@@ -2123,36 +2151,5 @@ font-size: 14px;
   width: 100px;
   margin: 0 1rem ; 
 } 
-
-.circle {
-  width: 160px;
-  top: 200px;
-  right: 30px;
-}
-
-/* Hintergrundbilder 
-
-.what_I_do {
-background: #252525 url(../images/what-I-do-background.webp) center center no-repeat;
-background-size: cover;
-min-height: 450px;
-background-attachment: fixed;
-}
-
-.about{
-margin: 0;
-background: #252525 url('../images/About-Bild-Header.webp') center center no-repeat;
-background-size: cover;
-min-height: 500px;
-}
-
-.flow-meets-function{
-margin: 0;
-background: #252525 url('../images/flow-meets-function.webp') center center no-repeat;
-background-size: cover;
-min-height: 500px;
-background-attachment: fixed;
-} */
-
 
 }
